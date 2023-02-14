@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tiles-definitions PUBLIC
+ "-//Apache Software Foundation//DTD Tiles Configuration 3.0//EN"
+ "http://tiles.apache.org/dtds/tiles-config_3_0.dtd">
+<tiles-definitions>
+	<definition name="Gshop.home"
+		template="/WEB-INF/views/index.jsp">
+		<put-attribute name="navbar"
+			value="/WEB-INF/views/layout/home/navbar.jsp" />
+		<put-attribute name="body" value="" />
+		<put-attribute name="footer"
+			value="/WEB-INF/views/layout/home/footer.jsp" />
+	</definition>
+	<definition name="*/*" extends="Gshop.home">
+		<put-attribute name="body"
+			value="/WEB-INF/views/pages/{1}/{2}.jsp" />
+	</definition>
+	<definition name="Gshop.admin"
+		template="/WEB-INF/views/pages/admin.jsp">
+		<put-attribute name="sidebar"
+			value="/WEB-INF/views/layout/admin/sidebar.jsp" />
+		<put-attribute name="header"
+			value="/WEB-INF/views/layout/admin/header.jsp" />
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="*" extends="Gshop.admin">
+		<put-attribute name="body"
+			value="/WEB-INF/views/pages/admin/{1}.jsp" />
+	</definition>
+</tiles-definitions>
